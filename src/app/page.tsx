@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -8,9 +11,11 @@ import { Header } from '@/app/components/header';
 import { ProjectPrioritizer } from '@/app/components/project-prioritizer';
 import { skills, certifications } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 export default function Home() {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
+  const [selectedCertImage, setSelectedCertImage] = useState<string | undefined>();
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -105,18 +110,38 @@ export default function Home() {
             </div>
             <div className="mx-auto mt-12 grid max-w-5xl gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
               {certifications.map((cert) => (
-                <Card key={cert.name} className="flex flex-col items-center text-center p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl">
-                  <Award className="h-12 w-12 mb-4 text-primary" />
-                  <CardHeader className="p-0">
-                    <CardTitle>{cert.name}</CardTitle>
-                    <CardDescription>{cert.description}</CardDescription>
-                  </CardHeader>
-                </Card>
+                <div
+                  key={cert.name}
+                  onClick={() => cert.imageUrl && setSelectedCertImage(cert.imageUrl)}
+                  className={cert.imageUrl ? 'cursor-pointer' : ''}
+                >
+                  <Card className="flex h-full flex-col items-center text-center p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl">
+                    <Award className="h-12 w-12 mb-4 text-primary" />
+                    <CardHeader className="p-0">
+                      <CardTitle>{cert.name}</CardTitle>
+                      <CardDescription>{cert.description}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
         </section>
       </main>
+
+      <Dialog open={!!selectedCertImage} onOpenChange={(isOpen) => !isOpen && setSelectedCertImage(undefined)}>
+        <DialogContent className="max-w-4xl p-0">
+          {selectedCertImage &&
+            <Image
+              src={selectedCertImage}
+              alt="Certificate"
+              width={1190}
+              height={841}
+              className="w-full h-auto rounded-md"
+            />
+          }
+        </DialogContent>
+      </Dialog>
 
       {/* Footer / Contact Section */}
       <footer id="contact" className="w-full bg-primary text-primary-foreground py-12 md:py-16">

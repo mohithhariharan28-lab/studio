@@ -41,11 +41,17 @@ export const projects: Project[] = [
   },
 ];
 
-export const certifications = [
+export const certifications: ({
+  name: string;
+  description: string;
+  issuer: string;
+  imageUrl?: string;
+})[] = [
   {
     name: "Wadhwani Foundation",
     description: "Entrepreneurship Program",
     issuer: "Wadhwani",
+    imageUrl: "/wadhwani-certificate.png"
   },
   {
     name: "IBM Data Analyst",
