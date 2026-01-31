@@ -40,10 +40,28 @@ export async function prioritizeProjects(
   return prioritizeProjectsFlow(input);
 }
 
+const relevanceAssessmentPrompt = ai.definePrompt({
+    name: 'relevanceAssessmentPrompt',
+    input: { schema: z.object({
+        project: ProjectSchema,
+        userDescription: z.string(),
+    })},
+    output: { schema: z.number().min(0).max(1).describe('A number between 0 and 1 indicating relevance. Higher is more relevant.') },
+    prompt: `Assess the relevance of the following project for the user based on their description.
+
+Project:
+Title: {{{project.title}}}
+Description: {{{project.description}}}
+
+User Description: {{{userDescription}}}
+
+Provide a relevance score from 0.0 to 1.0, where 1.0 is highly relevant. Return only the number.`
+});
+
 const assessProjectRelevance = ai.defineTool({
   name: 'assessProjectRelevance',
   description:
-    'Determines the relevance of a project to a user based on the project description and user description.',
+    'Determines the relevance of a project to a user based on the project description and user description. Returns a score between 0 and 1.',
   inputSchema: z.object({
     project: ProjectSchema,
     userDescription: z.string(),
@@ -51,9 +69,8 @@ const assessProjectRelevance = ai.defineTool({
   outputSchema: z.number().describe('A number between 0 and 1 indicating relevance. Higher is more relevant.'),
 },
 async (input) => {
-    // Placeholder implementation - replace with actual relevance assessment logic
-    // This dummy implementation always returns 0.5
-    return 0.5;
+    const { output } = await relevanceAssessmentPrompt(input);
+    return output ?? 0;
 });
 
 const prioritizeProjectsPrompt = ai.definePrompt({
