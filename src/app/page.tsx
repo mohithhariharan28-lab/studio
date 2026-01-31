@@ -9,13 +9,13 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { Github, Linkedin, Mail, Phone, Award } from 'lucide-react';
 import { Header } from '@/app/components/header';
 import { ProjectPrioritizer } from '@/app/components/project-prioritizer';
-import { skills, certifications } from '@/lib/data';
+import { skills, certifications, type Certification } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 export default function Home() {
   const profileImage = PlaceHolderImages.find(p => p.id === 'profile-picture');
-  const [selectedCertImage, setSelectedCertImage] = useState<string | undefined>();
+  const [selectedCert, setSelectedCert] = useState<Certification | undefined>();
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
@@ -112,7 +112,7 @@ export default function Home() {
               {certifications.map((cert) => (
                 <div
                   key={cert.name}
-                  onClick={() => cert.imageUrl && setSelectedCertImage(cert.imageUrl)}
+                  onClick={() => cert.imageUrl && setSelectedCert(cert)}
                   className={cert.imageUrl ? 'cursor-pointer' : ''}
                 >
                   <Card className="flex h-full flex-col items-center text-center p-6 transition-transform transform hover:-translate-y-1 hover:shadow-xl">
@@ -129,17 +129,25 @@ export default function Home() {
         </section>
       </main>
 
-      <Dialog open={!!selectedCertImage} onOpenChange={(isOpen) => !isOpen && setSelectedCertImage(undefined)}>
+      <Dialog open={!!selectedCert} onOpenChange={(isOpen) => !isOpen && setSelectedCert(undefined)}>
         <DialogContent className="max-w-4xl p-0">
-          {selectedCertImage &&
-            <Image
-              src={selectedCertImage}
-              alt="Certificate"
-              width={1190}
-              height={841}
-              className="w-full h-auto rounded-md"
-            />
-          }
+          {selectedCert?.imageUrl && (
+            <>
+              <DialogHeader className="sr-only">
+                <DialogTitle>{selectedCert.name} Certificate</DialogTitle>
+                <DialogDescription>
+                  Certificate of completion for {selectedCert.name} - {selectedCert.description}.
+                </DialogDescription>
+              </DialogHeader>
+              <Image
+                src={selectedCert.imageUrl}
+                alt={`${selectedCert.name} Certificate`}
+                width={1190}
+                height={841}
+                className="w-full h-auto rounded-md"
+              />
+            </>
+          )}
         </DialogContent>
       </Dialog>
 

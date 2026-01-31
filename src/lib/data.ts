@@ -41,12 +41,14 @@ export const projects: Project[] = [
   },
 ];
 
-export const certifications: ({
+export type Certification = {
   name: string;
   description: string;
   issuer: string;
   imageUrl?: string;
-})[] = [
+};
+
+export const certifications: Certification[] = [
   {
     name: "Wadhwani Foundation",
     description: "Entrepreneurship Program",
