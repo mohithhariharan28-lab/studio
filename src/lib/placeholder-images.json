@@ -2,8 +2,8 @@
   "placeholderImages": [
     {
       "id": "profile-picture",
-      "description": "A portrait of Ohith Hariharan",
-      "imageUrl": "",
+      "description": "A portrait of Mohith Hariharan",
+      "imageUrl": "/src/mohith1.jpg",
       "imageHint": "professional portrait"
     }
   ]
