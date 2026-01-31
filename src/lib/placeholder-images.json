@@ -2,8 +2,8 @@
   "placeholderImages": [
     {
       "id": "profile-picture",
-      "description": "A portrait of Mohith",
-      "imageUrl": "https://images.unsplash.com/photo-1544168190-79c17527004f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzY5NzUxMDk5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A portrait of Ohith Hariharan",
+      "imageUrl": "https://images.unsplash.com/photo-1615995213699-556de652296d?w=500&h=500&fit=crop&crop=faces",
       "imageHint": "professional portrait"
     }
   ]

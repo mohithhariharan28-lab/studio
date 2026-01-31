@@ -23,7 +23,7 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
-                    Hello, I'm Mohith
+                    Hello, I'm Ohith Hariharan
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     A passionate analyst and aspiring entrepreneur, dedicated to extracting valuable insights from data and driving business growth.
@@ -128,7 +128,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 mb-8">
             <div className="flex items-center gap-2">
               <Mail className="h-5 w-5" />
-              <a href="mailto:mohith.sample@email.com" className="hover:underline">mohith.sample@email.com</a>
+              <a href="mailto:ohith.hariharan.sample@email.com" className="hover:underline">ohith.hariharan.sample@email.com</a>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="h-5 w-5" />
@@ -137,18 +137,18 @@ export default function Home() {
           </div>
           <div className="flex justify-center gap-6">
             <Button asChild variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10 rounded-full">
-              <a href="https://linkedin.com/in/mohith" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/ohith-hariharan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-6 w-6" />
               </a>
             </Button>
             <Button asChild variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary-foreground/10 rounded-full">
-              <a href="https://github.com/mohith" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/ohith-hariharan" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-6 w-6" />
               </a>
             </Button>
           </div>
           <p className="mt-8 text-sm text-primary-foreground/70">
-            © {new Date().getFullYear()} Mohith. All rights reserved.
+            © {new Date().getFullYear()} Ohith Hariharan. All rights reserved.
           </p>
         </div>
       </footer>

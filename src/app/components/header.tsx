@@ -21,7 +21,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 items-center">
         <Link href="#home" className="mr-6 flex items-center space-x-2">
-          <span className="font-bold sm:inline-block">Mohith's Portfolio</span>
+          <span className="font-bold sm:inline-block">Ohith Hariharan's Portfolio</span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           {navLinks.map((link) => (
@@ -45,7 +45,7 @@ export function Header() {
                 <SheetContent side="left">
                     <nav className="grid gap-6 text-lg font-medium mt-10">
                          <Link href="#home" className="flex items-center gap-2 text-lg font-semibold" onClick={() => setIsMenuOpen(false)}>
-                            <span className="font-bold">Mohith's Portfolio</span>
+                            <span className="font-bold">Ohith Hariharan's Portfolio</span>
                         </Link>
                         {navLinks.map((link) => (
                             <Link
