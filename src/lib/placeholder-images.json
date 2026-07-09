@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Abstract sandal and white digital background",
+      "imageUrl": "https://picsum.photos/seed/portfolio-sandal/1920/1080",
+      "imageHint": "abstract neutral"
+    },
+    {
+      "id": "profile-pic",
+      "description": "Professional portrait placeholder",
+      "imageUrl": "https://picsum.photos/seed/profile/400/400",
+      "imageHint": "professional man"
+    },
+    {
+      "id": "project-smart-trolley",
+      "description": "Smart Trolley System official image",
+      "imageUrl": "/certificates/smart.jpg",
+      "imageHint": "smart trolley"
+    },
+    {
+      "id": "project-delhi-aqi",
+      "description": "Data visualization of air quality index",
+      "imageUrl": "/certificates/delhi.jpg",
+      "imageHint": "city smog"
+    },
+    {
+      "id": "project-sales-analysis",
+      "description": "Business sales data analysis visualization",
+      "imageUrl": "/certificates/sales.jpg",
+      "imageHint": "sales chart"
+    }
+  ]
+}
